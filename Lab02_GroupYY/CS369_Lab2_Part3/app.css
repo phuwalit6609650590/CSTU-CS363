@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+#list-cs {
+    background-color: bisque;
+    text-align: center;
+    color: green;
+}
+
+.topic-heading {
+    border-left: 6px solid red;
+}
+
+.heading {
+    color: #0D3D56 !important;
+}
+
+p {
+    text-indent: 40px;
+}
+
+p::first-letter {
+    font-size: 35px;
+    color: blue;
+}
+
+p:hover {
+    font-size: 26px;
+    color: red;
+}
+
+a:link {
+    color: blueviolet;
+    text-decoration: underline dotted red; 
+}
+
+a:visited {
+    color: gray;
+    text-decoration: underline dotted blue;
+}
+
+li a {
+    background-color: aquamarine;
+}
