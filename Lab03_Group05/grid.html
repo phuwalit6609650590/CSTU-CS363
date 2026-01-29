@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลงานไฮไลต์</title>
+    
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: "Sarabun", "Tahoma", sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .banner {
+            width: 100%;          
+            max-width: 1580px;   
+            margin: 0 auto;     
+            background-color: gold;
+            height: 200px; 
+            display: flex;
+            justify-content: center; 
+            align-items: center;    
+            margin-bottom: 30px; 
+            color: #333;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+        }
+        
+        /* grid things */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; 
+            width: 95%;
+            max-width: 1580px;
+            margin: 0 auto; 
+        }
+
+        .grid-item {
+            background-color: white;
+            border: 1px solid #ddd; 
+            border-radius: 8px;
+            padding: 15px;
+            padding-bottom: 50px; 
+           
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative; 
+        }
+
+        .grid-item:hover {
+            transform: scale(1.02); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .grid-item h3 {
+            margin-top: 0;
+            margin-bottom: 8px; 
+            font-size: 1.1em;
+            color: goldenrod; 
+            line-height: 1.3;
+        }
+        
+         /* content */
+        .meta-info {
+            margin: 0; 
+            margin-bottom: 4px; 
+            font-size: 0.9em; 
+            color: #555; 
+            line-height: 1.4;
+        }
+
+        .advisor {
+            margin-bottom: 12px; 
+            font-style: italic; 
+        }
+
+        .description {
+            margin: 0;
+            font-size: 0.95em;
+            color: #333;
+            line-height: 1.5; 
+            text-align: left; 
+            
+        }
+
+        .read-more {
+            position: absolute;
+            bottom: 15px; 
+            right: 15px;  
+            background-color: lightgray;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: background-color 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: orangered;
+            cursor: pointer;
+        }
+
+        @media print {
+            .banner {
+               
+                height: auto ;      
+                display: block ;    
+                margin-bottom: 30px ; 
+                color: black ;
+            }
+            
+            h1 {
+            text-align: left;
+            font-size: 2em;
+            }
+            
+            .read-more {
+                display: none ;
+            }
+
+            .grid-container {
+                display: block; 
+                width: 100%;
+                max-width: none;
+            }
+
+            .grid-item {
+                page-break-inside: avoid; 
+                margin-bottom: 20px ;
+                box-shadow:none !important; 
+                border: none !important;
+                padding-bottom: 15px; 
+            }
+
+            a { text-decoration: none; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="banner">
+        <h1>ผลงานไฮไลต์</h1>
+    </header>
+
+    <div class="grid-container">
+        
+        <article class="grid-item">
+            <img src="https://cs.sci.tu.ac.th/wp-content/uploads/2020/05/1549260510_1.jpg" alt="นักประดิษฐ์2562">
+            <h3>รางวัลสภาวิจัยแห่งชาติ: รางวัลวิทยานิพนธ์ระดับดี ประจำปี 2562 ในงานวันนักประดิษฐ์ 2562</h3>
+            <p class="meta-info"> </p>
+            <p class="meta-info advisor"></p>
+            <p class="description">
+อาจารย์ ดร. ธนาธร ทะนานทอง อาจารย์ประจำสาขาวิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์และเทคโนโลยี ม. ธรรมศาสตร์ ได้รับรางวัลสภาวิจัยแห่งชาติ: รางวัลวิทยานิพนธ์ระดับดี ประจำปี 2562 จากวิทยานิพนธ์เรื่อง “กรอบพัฒนาระบบเฝ้าระวังและติดตามผู้ป่วยโรคหัวใจแบบต่อเนื่องในชีวิตประจำวัน ผ่านเครือข่ายเซ็นเซอร์ร่างกายแบบไร้สาย” โดยได้รับมอบรางวัลจาก ท่าน พล.อ.อ. ประจิน จั่นตอง รองนายกรัฐมนตรี ในงานรางวัลสภาวิจัยแห่งชาติ สำนักงานคณะกรรมการวิจัยแห่งชาติ (ว.ช.) วันนักประดิษฐ์ 2562 เมื่อวันที่ 2 กุมภาพันธ์ 2562 ณ ศูนย์นิทรรศการและการประชุมไบเทค บางนา
+            </p>
+             <a href="https://cs.sci.tu.ac.th/?p=7770" class="read-more" target="_blank">รายละเอียดผลงานเพิ่มเติม ➜</a>
+        </article>
+
+        <article class="grid-item">
+            <img src="https://cs.sci.tu.ac.th/wp-content/uploads/2021/02/cstu_work4fix.png" alt="วัดปริมาณแอลกอฮอล์ในเลือด">
+            <h3>คณะวิทยาศาสตร์และเทคโนโลยี มธ. เปิดตัวนวัตกรรมต้นแบบ แอพพลิเคชัน“ดริ๊งเซฟ” ใช้ตรวจวัดปริมาณแอลกอฮอล์ในเลือด -รู้เวลาสร่างเมา</h3>
+            <p class="meta-info">นายสุริยา มีขุนทด และ นางสาวทวิพร ทัดแก้ว</p>
+            <p class="meta-info advisor">อาจารย์ที่ปรึกษา: รศ.ดร เยาวดี เต็มธนาภัทร์ และ นางสาว พรทิพย์ แม่นทรง</p>
+            <p class="description">
+คณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยธรรมศาสตร์ (มธ.) เปิดตัวนวัตกรรมต้นแบบ แอพพลิเคชัน“ดริ๊งเซฟ” ใช้ตรวจวัดปริมาณแอลกอฮอล์ในเลือด พร้อมประเมินสมรรถนะในการขับขี่ และเสนอทางออกในการขับขี่ที่ปลอดภัยได้อย่างมีประสิทธิภาพ เป็นผลงานของนักศึกษาสาขาวิชาวิทยาการคอมพิวเตอร์ ชั้นปี 4 โดยแอพฯ ดังกล่าว สามารถใช้งานได้ง่ายใน 1 ขั้นตอน เพียงแค่ “เป่าลมหายใจ 5 วิ” เข้าไปที่เซ็นเซอร์ตรวจวัดระดับแอลกอฮอล์
+            </p>
+             <a href="https://cs.sci.tu.ac.th/?p=7842" target="_blank" class="read-more">รายละเอียดผลงานเพิ่มเติม ➜</a>
+        </article>
+
+        <article class="grid-item">
+            <img src="https://cs.sci.tu.ac.th/wp-content/uploads/2021/02/cstu_work3fix2.png" alt="แอปช่วยพฤติกรรมเด็กออทิสติก">
+            <h3>นักศึกษามหาวิทยาลัยธรรมศาสตร์ พัฒนาระบบสำหรับติดตามพฤติกรรมเด็กออทิสติก</h3>
+            <p class="meta-info"> </p>
+            <p class="meta-info advisor"> </p>
+            <p class="description">นักศึกษามหาวิทยาลัยธรรมศาสตร์ พัฒนาระบบสำหรับติดตามพฤติกรรมเด็กออทิสติก โดยใช้สมาร์ทโฟนเป็นตัวช่วยบันทึกข้อมูล พร้อมให้คำแนะนำสำหรับการสังเกตกระตุ้นพัฒนาการของเด็กได้
+ชื่อผลงาน Kids Tracker Autism – แอพ ติดตามพฤติกรรมเด็กออทิสติก ผลงานของนางสาวน้ำเพชร สุขเรือนสุวรรณ และ นายเจตน์ เมืองโครต นักศึกษาชั้นปีที่ 4 สาขาวิชาวิทยาการคอมพิวเตอร์ โดยงาน “Senior Project #3” จัดขึ้นเมื่อเร็วๆ นี้ที่คณะวิทยาศาสตร์และเทคโนโลยี มธ. ศูนย์รังสิต โดยมีคณาจารย์ นักศึกษา ตลอดจนหน่วยงานพันธมิตรเข้าร่วมงานจำนวนมาก</p>
+             <a href="https://cs.sci.tu.ac.th/?p=7829" target="_blank" class="read-more">รายละเอียดผลงานเพิ่มเติม ➜</a>
+        </article>
+
+        <article class="grid-item">
+            <img src="https://cs.sci.tu.ac.th/wp-content/uploads/2021/09/%E0%B8%9B%E0%B8%81%E0%B8%A7%E0%B8%B4%E0%B8%94%E0%B8%B5%E0%B9%82%E0%B8%AD2.png" alt="การรู้จำเสียง"> 
+            <h3>การรู้จำเสียงนับเลขภาษาไทยของเด็กก่อนวัยเรียน</h3>
+            <p class="meta-info">นายณัฐพิชญ์ยุกต์ ศิวะหรรษาพันธ์ และ นายสิรภพ ชาตะรูปะ</p>
+            <p class="meta-info advisor">อาจารย์ที่ปรึกษา: ผศ.ดร.ประภาพร รัตนธำรง และ ดร.วาทยา ชุณห์วิจิตรา (NECTEC)</p>
+            <p class="description">
+สมาร์ทแมท เว็บแอปพลิเคชันเพื่อช่วยในการประเมินพัฒนาการทักษะเชิงตัวเลขและการฝึกทักษะเชิงตัวเลขเบื้องต้นสำหรับเด็กก่อนวัยเรียนในรูปแบบของเกมพัฒนาขึ้นมาด้วยความร่วมมือระหว่างกุมารแพทย์โรงพยาบาลรามาธิบดี และสาขาวิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยธรรมศาสตร์ มีข้อจำกัดในส่วนของ แบบทดสอบ และแบบฝึกหัดการนับที่ต้องให้เด็กที่เป็นผู้ใช้ออกเสียง แต่แอปพลิเคชันไม่
+สามารถประเมินผลการออกเสียงของเด็กได้ จำเป็นต้องมีผู้ปกครองคอยอยู่ด้วยในระหว่างการใช้งาน แต่จากการศึกษาทดลองเบื้องต้นพบว่าระบบรู้จำเสียงในปัจจุบันยังไม่สามารถเข้าใจเสียงของเด็กได้ดีเท่ากับการรู้จำเสียงของผู้ใหญ่เนื่องจากลักษณะการออกเสียงที่ไม่สม่าเสมอ ต่างจากผู้ใหญ่ที่จะใช้โทนเสียง และการเว้นช่วงค่อนข้างสม่าเสมอ
+            </p>
+             <a href="#" class="read-more">
+                รายละเอียดผลงานเพิ่มเติม ➜
+            </a>
+        </article>
+
+        <article class="grid-item">
+            <img src="https://cs.sci.tu.ac.th/wp-content/uploads/2020/05/messageImage_1581916751616-1.jpg" alt="เข้ารอบชิงชนะเลิศและได้รับทุนสนับสนุนรอบที่สอง เป็นจำนวนเงิน 12,000 บาท จากการแข่งขันพัฒนาโปรแกรมคอมพิวเตอร์ แห่งประเทศไทย ครั้งที่ 22 (NSC 2020)">
+            <h3>เข้ารอบชิงชนะเลิศและได้รับทุนสนับสนุนรอบที่สอง เป็นจำนวนเงิน 12,000 บาท จากการแข่งขันพัฒนาโปรแกรมคอมพิวเตอร์ แห่งประเทศไทย ครั้งที่ 22 (NSC 2020)</h3>
+            <p class="meta-info"> </p>
+            <p class="meta-info advisor"> </p>
+            <p class="description">โครงงาน “บีโก้:ปลอกคอสุนัขอัจฉริยะเพื่อสร้างเครือข่ายสุนัขผู้พิทักษ์” พัฒนาโดยนักศึกษาชั้นปีที่ 2 สาขาวิชาวิทยาการคอมพิวเตอร์ คณะวิทยา ศาสตร์และเทคโนโลยี ศูนย์ลำปาง  ได้แก่ นายทวีศักดิ์ ว่างป่อ, นายนพณัฐ นามปั่น, และนายธีรภัทร กาญจนาคม โดยมี ผศ.ดร.วรวรรณ ดีอัซ การ์บาโย เป็นอาจารย์ที่ปรึกษา และอาจารย์กฤตคม ศรีจิรานนท์ เป็นผู้ให้คำปรึกษา ได้รับทุนสนับสนุนรอบที่สอง เป็นจำนวนเงิน 12,000 บาท จากการแข่งขันพัฒนาโปรแกรมคอมพิวเตอร์ แห่งประเทศไทย ครั้งที่ 22 (NSC 2020)</p>
+             <a href="https://cs.sci.tu.ac.th/2021/02/14/nsc-2020/" class="read-more" target="_blank">รายละเอียดผลงานเพิ่มเติม ➜</a>
+        </article>
+
+        <article class="grid-item">
+            <img src="https://cs.sci.tu.ac.th/wp-content/uploads/2021/01/cstu_work.jpg" alt="ส่งเสริมการท่องเที่ยวแบบสร้างสรรค์ ">
+            <h3>วิทยาศาสตร์ฯ มธ. เปิดตัวแอปพลิเคชั่น “สมาร์ทโลคอลไกด์” ต้นแบบนวัตกรรมเพื่อชุมชน ส่งเสริมการท่องเที่ยวแบบสร้างสรรค์ เพิ่มรายได้ผู้ประกอบการในชุมชน</h3>
+            <p class="meta-info">นายวรากร วิไลรัศมี และ นายนันทวัฒน์ เจริญผล</p>
+            <p class="meta-info advisor">อาจารย์ที่ปรึกษา: ผศ.ดร.ปกรณ์ ลี้สุทธิพรชัย</p>
+            <p class="description">รศ.ดร.สมชาย ชคตระการ คณบดีคณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยธรรมศาสตร์ เปิดตัวหลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการคอมพิวเตอร์ วิชาเอกเทคโนโลยีการเรียนรู้ ณ มหาวิทยาลัยธรรมศาสตร์ ศูนย์ลำปาง และ เปิดตัวต้นแบบนวัตกรรมเพื่อพัฒนาชุมชน “สมาร์ทโลคอลไกด์” (Smart Local Guide) แอปพลิเคชั่นที่
+นายธนโชติ เฉวียงหงษ์ นักศึกษาคณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยธรรมศาสตร์ จัดทำขึ้นเพื่อกระตุ้นและสนับสนุนการท่องเที่ยว ผลิตภัณฑ์สินค้าชุมชนให้เป็นที่รู้จักในวงกว้างมากยิ่งขึ้น</p>
+             <a href="https://cs.sci.tu.ac.th/?p=7797" target="_blank" class="read-more">รายละเอียดผลงานเพิ่มเติม ➜</a>
+        </article>
+
+        <article class="grid-item">
+            <img src="https://cs.sci.tu.ac.th/wp-content/uploads/2021/02/cstu_work6fix.png" alt="นักศึกษามหาวิทยาลัยธรรมศาสตร์ พัฒนาแอพพลิเคชั่นระบบติดตามอาการผู้ป่วยโรคไต บันทึกอาการและอาหารที่กินประจำวัน">
+            <h3>นักศึกษามหาวิทยาลัยธรรมศาสตร์ พัฒนาแอพพลิเคชั่นระบบติดตามอาการผู้ป่วยโรคไต บันทึกอาการและอาหารที่กินประจำวัน</h3>
+            <p class="meta-info"></p>
+            <p class="meta-info advisor"></p>
+            <p class="description">นักศึกษามหาวิทยาลัยธรรมศาสตร์พัฒนาแอพพลิเคชั่นระบบติดตามอาการผู้ป่วยโรคไต บันทึกอาการและอาหารที่กินประจำวัน ช่วยวิเคราะห์อาการและรับคำแนะนำเบื้องต้น ทำให้การรักษาของแพทย์มีประสิทธิภาพ ชื่อผลงาน Kidney Pro-Tech – แอพ ผู้ช่วยหมอ ตามติดพฤติกรรมเสี่ยงผู้ป่วยโรค ไต ผลงานของนางสาวนรินทร์รัก นามานุภาพ และนายพิชญ์ชาธร บำรุงศรี นักศึกษาชั้นปี 4 สาขาวิชาวิทยาการคอมพิวเตอร์ โดยงาน “Senior Project #3”</p>
+             <a href="https://cs.sci.tu.ac.th/2021/02/15/%e0%b9%81%e0%b8%ad%e0%b8%9e%e0%b8%9e%e0%b8%a5%e0%b8%b4%e0%b9%80%e0%b8%84%e0%b8%8a%e0%b8%b1%e0%b9%88%e0%b8%99%e0%b8%a3%e0%b8%b0%e0%b8%9a%e0%b8%9a%e0%b8%95%e0%b8%b4%e0%b8%94%e0%b8%95%e0%b8%b2%e0%b8%a1/" class="read-more" target="_blank">รายละเอียดผลงานเพิ่มเติม ➜</a>
+        </article>
+
+    </div>
+
+</body>
+</html>
