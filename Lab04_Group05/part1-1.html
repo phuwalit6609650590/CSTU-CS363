@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<title>Simple JS</title>
+</head>
+<body>
+<div id="target"></div>
+
+<script>
+window.onload = function() {
+   var target = document.getElementById("target");
+   hello(target);
+}
+
+function hello(target) {
+   let inputs = [];
+   let sumAge = 0;
+   let maxAge = -Infinity;
+   let minAge = Infinity;
+
+   while (true) {
+      let rawInput = window.prompt("Enter name and age (or 'Stop'/'End' to finish)");
+      
+      //เช็ค null (cancel) ก่อน
+      if (!rawInput) {
+         alert("การรับข้อมูลเสร็จสิ้นแล้ว");
+         break;
+      }
+      
+      rawInput = rawInput.trim();
+      
+      //stop/end
+      if (rawInput.toLowerCase() === "stop" || rawInput.toLowerCase() === "end") {
+         alert("การรับข้อมูลเสร็จสิ้นแล้ว");
+         break;
+      }
+
+      //name และ age
+      let parts = rawInput.split(/\s+/);
+      if (parts.length < 2) continue;
+
+      let name = parts[0];
+      let age = parseInt(parts[1]);
+
+      if (isNaN(age)) continue;
+
+      inputs.push({ name, age });
+      sumAge += age;
+      if (age > maxAge) maxAge = age;
+      if (age < minAge) minAge = age;
+   }
+
+   if (inputs.length > 0) {
+      let html = "<h3>รายชื่อที่รับมา:</h3>";
+      inputs.forEach(person => {
+         html += `${person.name} (อายุ ${person.age})<br>`;
+      });
+
+      let avgAge = sumAge / inputs.length;
+      
+      html += "<hr>";
+      html += `จำนวนคนทั้งหมด: ${inputs.length} คน<br>`;
+      html += `อายุที่มากที่สุด: ${maxAge}<br>`;
+      html += `อายุที่น้อยที่สุด: ${minAge}<br>`;
+      html += `อายุเฉลี่ย: ${avgAge.toFixed(2)}`;
+
+      target.innerHTML = html;
+   } else {
+      target.innerHTML = "ไม่มีข้อมูลที่ระบุ";
+   }
+}
+</script>
+</body>
+</html>
