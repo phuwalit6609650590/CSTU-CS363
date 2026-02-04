@@ -67,7 +67,7 @@
 
                 // สร้าง<li>ให้และใส่name age 
                 const li = document.createElement("li");
-                li.innerText = `${person.name} ${person.age}`; // แสดงทุก Property
+                li.innerText = `${person.name} ${person.age} ${person.shortName ? person.shortName : ""}`; // แสดงทุก Property
                 
                 // ใส่ใน ol
                 olElement.appendChild(li);
@@ -111,6 +111,27 @@
             return filterResult;
         }
 
+        // ส่วนที่ 2.4 shortNames
+        function shortNames(persons) {
+            // วนลูปใน array
+            return persons.map(person => {
+                let name = person.name; // ดึงชื่อออกมา
+
+                // สร้าง อักษรแรก , อักษรสุดท้าย ในรูป X.Y.
+                let firstChar = name[0].toUpperCase(); 
+                let lastChar = name[name.length - 1].toUpperCase();
+
+                let shortNameValue = `${firstChar}.${lastChar}.`;
+
+                // เพิ่ม property shortName เข้าไปใน object
+                person.shortName = shortNameValue;
+
+                // return object กลับ
+                return person;
+
+            });
+
+        }
         function time() {
             return new Promise(resolve => setTimeout(resolve, 1000));
         }
@@ -124,7 +145,7 @@
             await time();
             
             alert('show list of person using shortname');
-            //showList(shortName(persons));
+            showList(shortNames(persons));
         }
 
     </script>
