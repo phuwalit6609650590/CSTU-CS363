@@ -24,6 +24,7 @@
          //stop/end
          if (rawInput.toLowerCase() === "stop" || rawInput.toLowerCase() === "end") {
              alert("การรับข้อมูลเสร็จสิ้นแล้ว");
+             run();
             break;
          }
           
@@ -44,16 +45,12 @@
             };
         persons.push(personObj);
      }
-        
-        showList(persons);
 
         //ส่วนที่ 2.2 showList
         function showList(persons) {
             const targetDiv = document.getElementById("target");
             
-            //เคลียร์ข้อมูลเก่าา **อันนี้มีบอกในHint2 แต่ข้อ1-2ที่กูทำยังไม่มีปัญหาเด้อ
-            //*******ถ้างานสุดท้ายแล้วยังไม่มีใช้อันนี้ ก็ลบได้เลย*******//
-            //targetDiv.innerHTML = ""; 
+            targetDiv.innerHTML = ""; 
             
             // สร้างelement <ol> สำหรับ <li> รายชื่อ
             const olElement = document.createElement("ol");
@@ -113,6 +110,23 @@
             // 3. คืนค่าเป็น array ของคนที่อายุมากกว่าค่าเฉลี่ย
             return filterResult;
         }
+
+        function time() {
+            return new Promise(resolve => setTimeout(resolve, 1000));
+        }
+
+        async function run() {
+            showList(persons);
+            await time();
+            
+            alert('show list of persons using filterOnlyAboveAverageAge')
+            showList(filterOnlyAboveAverageAge(persons));
+            await time();
+            
+            alert('show list of person using shortname');
+            //showList(shortName(persons));
+        }
+
     </script>
 </body>
 </html>
