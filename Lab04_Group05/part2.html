@@ -96,6 +96,23 @@
             `;
             targetDiv.appendChild(statsDiv);
         }
+        //ส่วนที่ 2.3 filterOnlyAboveAverageAge
+        function  filterOnlyAboveAverageAge (persons){
+            // 1. คำนวณหาค่าเฉลี่ย
+            const totalAge = persons.reduce((sum, person) => sum + person.age, 0);
+            const averageAge = totalAge / persons.length;
+
+            console.log("ค่าเฉลี่ยอายุคือ:", averageAge); //ไว้เช็คค่าใน Console เฉยๆ ลบได้นะ
+
+            // 2. ใช้ High Order Function
+            // filter จะวนลูปเช็คทีละคน ถ้าเงื่อนไขเป็น true จะเก็บคนนั้นไว้ใน array ใหม่
+            const filterResult = persons.filter(person => {
+            return person.age > averageAge; 
+        });
+
+            // 3. คืนค่าเป็น array ของคนที่อายุมากกว่าค่าเฉลี่ย
+            return filterResult;
+        }
     </script>
 </body>
 </html>
