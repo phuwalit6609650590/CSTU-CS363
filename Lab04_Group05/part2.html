@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4: Part 2 DOM</title>
+</head>
+<body>
+
+    <div id="target"></div>
+
+    <script>
+        //persons array 2.1
+        let persons = [];
+    
+        while (true) {
+            let rawInput = prompt("Enter name and age (or 'Stop'/'End' to finish): ");
+
+        //เช็ค null (cancel) ก่อน
+        if (!rawInput) continue;
+        
+         rawInput = rawInput.trim();
+         
+         //stop/end
+         if (rawInput.toLowerCase() === "stop" || rawInput.toLowerCase() === "end") {
+             alert("การรับข้อมูลเสร็จสิ้นแล้ว");
+            break;
+         }
+          
+         //name และ age
+        let parts = rawInput.split(/\s+/);
+        if (parts.length < 2) continue;
+        let name = parts[0];
+
+        let age = parseInt(parts[1]);
+        //อันนี้เติร์ดแอบเพิ่ม age <=0 จากข้อส่วน1 ลงในส่วน2ข้อ1-2
+        //ถ้าข้อต่อไปใช้ age <=0 ได้ ก็มาลบด้วย
+        if (isNaN(age) || age <= 0 ) continue;
+        
+        //สร้าง Object -> push Array
+        let personObj = {
+         name: name,
+         age: age
+            };
+        persons.push(personObj);
+     }
+        
+        showList(persons);
+
+        //ส่วนที่ 2.2 showList
+        function showList(persons) {
+            const targetDiv = document.getElementById("target");
+            
+            //เคลียร์ข้อมูลเก่าา **อันนี้มีบอกในHint2 แต่ข้อ1-2ที่กูทำยังไม่มีปัญหาเด้อ
+            //*******ถ้างานสุดท้ายแล้วยังไม่มีใช้อันนี้ ก็ลบได้เลย*******//
+            //targetDiv.innerHTML = ""; 
+            
+            // สร้างelement <ol> สำหรับ <li> รายชื่อ
+            const olElement = document.createElement("ol");
+
+            let count = persons.length;
+            let maxAge = -Infinity;
+            let minAge = Infinity;
+            let sumAge = 0;
+            persons.forEach(person => {
+                // คำนวณค่าทางสถิติ
+                if (person.age > maxAge) maxAge = person.age;
+                if (person.age < minAge) minAge = person.age;
+                sumAge += person.age;
+
+                // สร้าง<li>ให้และใส่name age 
+                const li = document.createElement("li");
+                li.innerText = `${person.name} ${person.age}`; // แสดงทุก Property
+                
+                // ใส่ใน ol
+                olElement.appendChild(li);
+            });
+
+            // กรณีไม่มีข้อมูล 
+            if (count === 0) {
+                maxAge = 0;
+                minAge = 0;
+            }
+            let avgAge = count > 0 ? (sumAge / count).toFixed(2) : 0;
+
+            // แสดงผลที่เว็บ
+            targetDiv.innerHTML = "<h3>รายชื่อที่รับมา:</h3>";
+            targetDiv.appendChild(olElement);
+            const statsDiv = document.createElement("div");
+            statsDiv.innerHTML = `
+                <hr>
+                <p>จำนวนคนทั้งหมด: ${count}</p>
+                <p>อายุที่มากที่สุด: ${maxAge}</p>
+                <p>อายุน้อยที่สุด: ${minAge}</p>
+                <p>อายุเฉลี่ย: ${avgAge}</p>
+            `;
+            targetDiv.appendChild(statsDiv);
+        }
+    </script>
+</body>
+</html>
