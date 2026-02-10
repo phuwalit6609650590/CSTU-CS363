@@ -82,6 +82,7 @@
                 <p>Powerful laptop for software development and design.</p>
                 <p class="stock">Stock: <span class="stock-count">3</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
             <div class="item">
                 <img src="https://via.placeholder.com/200" alt="Laptop">
@@ -89,6 +90,7 @@
                 <p>Reliable laptop with great keyboard and battery life.</p>
                 <p class="stock">Stock: <span class="stock-count">2</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
         </div>
     </div>
@@ -103,6 +105,7 @@
                 <p>Perfect for note-taking and digital sketching.</p>
                 <p class="stock">Stock: <span class="stock-count">4</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
             <div class="item">
                 <img src="https://via.placeholder.com/200" alt="Accessory">
@@ -110,6 +113,7 @@
                 <p>1TB of storage for backups and file transfers.</p>
                 <p class="stock">Stock: <span class="stock-count">5</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
             <div class="item">
                 <img src="https://via.placeholder.com/200" alt="Accessory">
@@ -117,6 +121,7 @@
                 <p>Expand connectivity for modern laptops.</p>
                 <p class="stock">Stock: <span class="stock-count">7</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
             <div class="item">
                 <img src="https://via.placeholder.com/200" alt="Accessory">
@@ -124,6 +129,7 @@
                 <p>Ergonomic design for comfortable use.</p>
                 <p class="stock">Stock: <span class="stock-count">6</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
             <div class="item">
                 <img src="https://via.placeholder.com/200" alt="Accessory">
@@ -131,6 +137,7 @@
                 <p>Tactile feedback for efficient typing.</p>
                 <p class="stock">Stock: <span class="stock-count">4</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
         </div>
     </div>
@@ -145,6 +152,8 @@
                 <p>High-definition camera for online meetings.</p>
                 <p class="stock">Stock: <span class="stock-count">3</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
+
             </div>
             <div class="item">
                 <img src="https://via.placeholder.com/200" alt="Gadget">
@@ -152,6 +161,8 @@
                 <p>Compact projector for presentations.</p>
                 <p class="stock">Stock: <span class="stock-count">2</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                 <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
+
             </div>
             <div class="item">
                 <img src="https://via.placeholder.com/200" alt="Accessory">
@@ -159,6 +170,7 @@
                 <p>Immersive audio experience for focus.</p>
                 <p class="stock">Stock: <span class="stock-count">3</span></p>
                 <button onclick="rentItem(this)">Rent Now</button>
+                <button onclick="returnItem(this)" class="return-btn" style="background-color: green; color: white;" disabled>Return</button>
             </div>
         </div>
     </div>
@@ -181,6 +193,51 @@
             headings[j].style.color = "Navy";
         }
 
+    // --- ส่วนที่ 1 ข้อที่ 3 ---
+    // อันนี้หาmax-stock จากinnerText
+    document.querySelectorAll('.stock-count').forEach(function(span) {
+    span.maxStock = parseInt(span.innerText); 
+    });
+
+    // กด rent -1 เปิดให้return /เหลือ0disable/
+    function rentItem(button) {
+        var itemBox = button.parentElement; 
+        var stockElem = itemBox.querySelector(".stock-count"); 
+        var currentStock = parseInt(stockElem.innerText);
+
+        if (currentStock > 0) {
+        currentStock--;
+        stockElem.innerText = currentStock;
+
+            if (currentStock === 0) {
+            button.disabled = true;
+            }
+
+            var returnBtn = button.nextElementSibling;
+            if (returnBtn) {
+            returnBtn.disabled = false;
+            }
+          }
+        }   
+
+    // --- ส่วนที่ 1 ข้อที่ 4 ---
+    // กด return+1 เปิดให้rent/เท่าเดิมปิดreturn
+    function returnItem(button) {
+        var itemBox = button.parentElement;
+        var stockElem = itemBox.querySelector(".stock-count");
+        var currentStock = parseInt(stockElem.innerText);
+        var maxStock = stockElem.maxStock; 
+
+        if (currentStock < maxStock) {
+        currentStock++;
+        stockElem.innerText = currentStock;
+
+            if (currentStock === maxStock) button.disabled = true;
+
+            var rentBtn = button.previousElementSibling;
+            if (rentBtn) rentBtn.disabled = false;
+        }
+    }
     </script>
 
 </body>
