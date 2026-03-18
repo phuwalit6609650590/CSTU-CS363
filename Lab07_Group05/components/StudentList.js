@@ -4,10 +4,15 @@ import "../App.css";
 
 function StudentList({ studentList }) {
   const [highlightedIndex, setHighlightedIndex] = useState(null);
+  const [studentArray, setStudentArray] = useState(studentList)
 
   const handleItemClick = (index) => {
     setHighlightedIndex(index);
   };
+
+  const handleDoubleClick = (index) => {
+    setStudentArray((prev)=>prev.filter((_, i) => i !== index))
+  }
 
   return (
     <div>
@@ -17,6 +22,7 @@ function StudentList({ studentList }) {
           <li
             key={index}
             onClick={() => handleItemClick(index)}
+            onDoubleClick={() => handleDoubleClick(index)}
             className={highlightedIndex === index ? "highlighted" : ""}
           >
             <Student name={student.name} nickname={student.nickname} />
