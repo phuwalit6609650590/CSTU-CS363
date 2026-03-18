@@ -18,6 +18,11 @@ function StudentList({ studentList }) {
     setHighlightedIndex(null); 
   };
 
+  const handleDoubleClick = (index) => {
+  setStudents(students.filter((_, i) => i !== index));
+  setHighlightedIndex(null);
+  };
+
   return (
     <div>
       <h2>รายชื่อนักศึกษา</h2>
@@ -32,6 +37,7 @@ function StudentList({ studentList }) {
             key={index}
             onClick={() => handleItemClick(index)}
             className={highlightedIndex === index ? "highlighted" : ""}
+            onDoubleClick={() => handleDoubleClick(index)}
           >
             <Student name={student.name} nickname={student.nickname} />
           </li>
