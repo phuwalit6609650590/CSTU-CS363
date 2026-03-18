@@ -3,11 +3,11 @@ import StudentList from './components/StudentList';
 
 function App() {
 
-  /* const studentList = [
+  const studentList = [
     {name: "Thammasat Rakdham", nickname: "Deng"},
     {name: "Sarah Smith", nickname: "Dhum"},
     {name: "Mayuri Booksak", nickname: "Yuri"}
-  ]; */
+  ];
 
   const groupMembers = [
     {name: "นายสุรบดี ผาสุข", nickname: "ไม้"},
@@ -20,8 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <StudentList studentList={studentList} /> */}
-      
+      <StudentList studentList={studentList} />
       {/* Reuse Component */}
       <StudentList studentList={groupMembers} />
     </div>
