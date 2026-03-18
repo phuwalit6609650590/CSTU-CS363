@@ -1,4 +1,5 @@
 import React from 'react';
+import Student from './Student';
 
 function StudentList({ studentList }) {
   return (
@@ -7,7 +8,7 @@ function StudentList({ studentList }) {
       <ul>
         {studentList.map((student, index) => (
           <li key={index}>
-            {student.name} ({student.nickname})
+            <Student name={student.name} nickname={student.nickname} />
           </li>
         ))}
       </ul>
