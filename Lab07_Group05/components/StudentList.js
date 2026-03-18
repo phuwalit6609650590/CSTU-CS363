@@ -4,25 +4,33 @@ import "../App.css";
 
 function StudentList({ studentList }) {
   const [highlightedIndex, setHighlightedIndex] = useState(null);
-  const [studentArray, setStudentArray] = useState(studentList)
+  const [students, setStudents] = useState(studentList);
 
   const handleItemClick = (index) => {
     setHighlightedIndex(index);
   };
 
-  const handleDoubleClick = (index) => {
-    setStudentArray((prev)=>prev.filter((_, i) => i !== index))
-  }
+  const handleSortAlphabet = () => {
+    const sortedList = [...students].sort((a, b) => 
+      a.name.localeCompare(b.name)
+    );
+    setStudents(sortedList);
+    setHighlightedIndex(null); 
+  };
 
   return (
     <div>
       <h2>รายชื่อนักศึกษา</h2>
+      <button 
+        onClick={handleSortAlphabet} 
+      >
+        เรียงลำดับชื่อตามตัวอักษร
+      </button>
       <ul>
-        {studentList.map((student, index) => (
+        {students.map((student, index) => (
           <li
             key={index}
             onClick={() => handleItemClick(index)}
-            onDoubleClick={() => handleDoubleClick(index)}
             className={highlightedIndex === index ? "highlighted" : ""}
           >
             <Student name={student.name} nickname={student.nickname} />
