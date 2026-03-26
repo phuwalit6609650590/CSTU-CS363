@@ -1,0 +1,276 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+
+:root {
+    --bg-main: #101017;
+    --bg-sidebar: #13141f;
+    --bg-channel: #1b1d2e;
+    --bg-bubble-self: #2a2d48;
+    --bg-bubble-other: #20233b;
+    --text-primary: #ffffff;
+    --text-secondary: #8b8e9f;
+    --accent: #6f55ff;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* สำหรับทดสอบภายนอก */
+}
+
+.app-container {
+    width: 1440px; /* ขนาดจำลองจากรูปภาพ */
+    height: 900px;
+    background-color: var(--bg-main);
+    display: grid;
+    grid-template-columns: 240px 240px 1fr;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.main-sidebar {
+    background-color: var(--bg-sidebar);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    color: var(--accent);
+    font-size: 32px;
+    font-weight: bold;
+    background-color: #f6f5ff;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    align-self: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: var(--text-primary);
+    background-color: rgba(111, 85, 255, 0.1);
+}
+
+.nav-links a i {
+    font-size: 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info .name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.user-info .role {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* Channel Sidebar */
+.channel-sidebar {
+    background-color: var(--bg-channel);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.group h3 {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.group a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    display: block;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.group a.active {
+    color: var(--accent);
+}
+
+/* Chat Area */
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat-header {
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.chat-header h2 {
+    color: var(--text-primary);
+    font-size: 20px;
+}
+
+.chat-header .members {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.message-list {
+    flex-grow: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.message {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.message.self {
+    justify-content: flex-end;
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.message.self .message-content {
+    align-items: flex-end;
+}
+
+.sender-time {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.message .bubble {
+    color: var(--text-primary);
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    max-width: 500px;
+}
+
+.message.other .bubble {
+    background-color: var(--bg-bubble-other);
+}
+
+.message.self .bubble {
+    background-color: var(--bg-bubble-self);
+}
+
+.emoji {
+    font-size: 16px;
+}
+
+/* ส่วนของไอคอนจรวดตามที่ระบุ */
+.rocket-bubble {
+    background-color: #2c2e43 !important; /* ปรับสีพื้นหลังเฉพาะ */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.rocket-icon {
+    color: #ffd700; /* สีทองสำหรับจรวด */
+    font-size: 24px !important;
+}
+
+/* Avatars */
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.avatar.blue { background-color: #6f55ff; }
+.avatar.orange { background-color: #ffa500; }
+.avatar.pink { background-color: #ff69b4; }
+
+/* Input Area */
+.input-area {
+    padding: 20px 40px 40px;
+    position: relative;
+}
+
+.input-area input {
+    width: 100%;
+    background-color: #171822;
+    border: none;
+    padding: 20px;
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.send-btn {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: -10px; /* ปรับชดเชยตาม padding */
+}
