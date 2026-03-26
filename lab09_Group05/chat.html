@@ -1,84 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painner - Chat</title>
-    <link rel="stylesheet" href="css/chat.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painner — Chat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <div class="app-container">
-        <aside class="main-sidebar">
-            <div class="logo">P</div>
-            <nav class="nav-links">
-                <a href="#"><i class="material-icons">grid_view</i> Dashboard</a>
-                <a href="#"><i class="material-icons">people_alt</i> Teams</a>
-                <a href="#"><i class="material-icons">folder</i> Projects</a>
-                <a href="#" class="active"><i class="material-icons">chat_bubble</i> Chat</a>
-            </nav>
-            <div class="user-profile">
-                <div class="avatar blue">JD</div>
-                <div class="user-info">
-                    <span class="name">John Doe</span>
-                    <span class="role">Owner</span>
-                </div>
-            </div>
-        </aside>
 
-        <section class="channel-sidebar">
-            <div class="group">
-                <h3>CHANNELS</h3>
-                <a href="#" class="active"># Dev Team Alpha</a>
-                <a href="#"># Team chat</a>
-            </div>
-            <div class="group">
-                <h3>PROJECTS</h3>
-                <a href="#">Painner Web App</a>
-                <a href="#">Marketing Site</a>
-            </div>
-        </section>
+    <link rel="stylesheet" href="css/chat.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">P</div>
+        <span style="font-family: 'Syne'; font-weight: bold; font-size: 18px">Painner</span>
+      </div>
 
-        <main class="chat-area">
-            <header class="chat-header">
-                <h2># Dev Team Alpha</h2>
-                <span class="members">6 members</span>
-            </header>
-            
-            <div class="message-list">
-                <div class="message other">
-                    <div class="avatar orange">JD</div>
-                    <div class="message-content">
-                        <span class="sender-time">John Doe 10:30</span>
-                        <p>พูดคุย Sprint 1 deadline วันเสาร์นะครับ</p>
-                    </div>
-                </div>
+      <a href="team.html" class="menu-item">Teams</a>
+      <a href="dashboard.html" class="menu-item">Dashboard</a>
+      <a href="project.html" class="menu-item">Projects</a>
+      <a href="chat.html" class="menu-item active">Chat</a>
 
-                <div class="message other">
-                    <div class="avatar pink">S</div>
-                    <div class="message-content">
-                        <span class="sender-time">Sarah M. 10:40</span>
-                        <p>มีงานเลย! KPI พร้อมแล้วพรุ่งนี้ครับ <span class="emoji">🎉</span></p>
-                    </div>
-                </div>
-
-                <div class="message self">
-                    <div class="message-content">
-                        <span class="sender-time">Alex K. 10:35</span>
-                        <div class="bubble rocket-bubble">
-                            <i class="material-icons rocket-icon">rocket_launch</i>
-                            <p>ทำ Kanban component เสร็จแล้วครับ</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="input-area">
-                <input type="text" placeholder="พิมพ์ข้อความ...">
-                <button class="send-btn"><i class="material-icons">arrow_upward</i></button>
-            </footer>
-        </main>
+      <div class="user-profile">
+        <div class="avatar">JD</div>
+        <div>
+            <a href="profile.html" style="text-decoration: none; color: inherit; display: block;">
+                <div style="font-size: 14px; font-weight: bold">John Doe</div>
+                <div style="font-size: 12px; color: var(--text-sub)">Owner</div>
+            </a>
+        </div>
+      </div>
     </div>
-</body>
+
+    <div class="main-content">
+      <div class="top-bar">
+        <div class="breadcrumb">
+          <span class="breadcrumb-team"># Dev Team Alpha</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Chat</span>
+        </div>
+      </div>
+
+      <div class="page-label">TEAM CONVERSATION</div>
+
+      <div class="chat-wrapper">
+        <div class="chat-messages">
+          
+          <div class="message other">
+            <div class="chat-avatar" style="background: #fbbf24;">JD</div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="sender-name">John Doe</span>
+                <span class="sender-time">10:30</span>
+              </div>
+              <div class="message-text">พูดคุย Sprint 1 deadline วันเสาร์นะครับ</div>
+            </div>
+          </div>
+
+          <div class="message other">
+            <div class="chat-avatar" style="background: #f472b6;">S</div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="sender-name">Sarah M.</span>
+                <span class="sender-time">10:40</span>
+              </div>
+              <div class="message-text">มีงานเลย! KPI พร้อมแล้วพรุ่งนี้ครับ 🎉</div>
+            </div>
+          </div>
+
+          <div class="message self">
+            <div class="message-content">
+              <div class="message-header">
+                <span class="sender-name">Alex K.</span>
+                <span class="sender-time">10:35</span>
+              </div>
+              <div class="message-bubble rocket-bubble">
+                <i class="material-icons rocket-icon">rocket_launch</i>
+                <span class="message-text-self">ทำ Kanban component เสร็จแล้วครับ</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="chat-input-area">
+          <input type="text" placeholder="พิมพ์ข้อความ..." class="chat-input" />
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
