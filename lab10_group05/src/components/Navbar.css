@@ -18,7 +18,6 @@
   border-radius: 25px; 
   transition: all 0.3s ease; 
 }
-
 /* Active Styling ให้เด่นชัดเจน  */
 .nav-item.active {
   background-color: #ffffff;
