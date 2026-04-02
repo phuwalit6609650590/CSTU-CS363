@@ -20,7 +20,7 @@ const Member = () => {
     {
       name: 'จุติณัฏฐ์',
       surName: 'รัตนะมงคลกุล',
-      nickName: 'บอม',
+      nickName: 'บอมบ์',
       studentId: 6609650228
     },
     {

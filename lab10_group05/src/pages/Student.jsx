@@ -25,9 +25,9 @@ const Student = () => {
     {
       name: 'จุติณัฏฐ์',
       surName: 'รัตนะมงคลกุล',
-      nickName: 'บอม',
+      nickName: 'บอมบ์',
       studentId: 6609650228,
-      hobby: ''
+      hobby: 'ต่อ Gunpla'
     },
     {
       name: 'รพินทร์',
