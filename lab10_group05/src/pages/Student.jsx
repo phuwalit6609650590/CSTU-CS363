@@ -48,7 +48,7 @@ const Student = () => {
       surName: 'ผาสุข',
       nickName: 'ไม้',
       studentId: 6609650707,
-      hobby: ''
+      hobby: 'ฟังเพลง'
     }
   ]
 
