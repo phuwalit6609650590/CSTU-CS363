@@ -39,9 +39,9 @@ const Student = () => {
     {
       name: 'สุทธิพจน์',
       surName: 'ประทุมทอง',
-      nickName: 'เอ็ม',
+      nickName: 'เอม',
       studentId: 6609650699,
-      hobby: ''
+      hobby: 'เล่นเกม'
     },
     {
       name: 'สุรบดี',

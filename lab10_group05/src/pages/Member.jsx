@@ -32,7 +32,7 @@ const Member = () => {
     {
       name: 'สุทธิพจน์',
       surName: 'ประทุมทอง',
-      nickName: 'เอ็ม',
+      nickName: 'เอม',
       studentId: 6609650699
     },
     {
