@@ -5,8 +5,8 @@ const path = require('path');
 const server = http.createServer((req, res) => {
 
     if (req.url === '/') {
-        //ส่วนที่ 2 ข้อ 1 เอาโค้ดลงdocด้วย
-        
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('This is my home page');
     } 
     
     else if (req.url === '/members_text') {
