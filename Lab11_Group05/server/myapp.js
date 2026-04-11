@@ -10,9 +10,13 @@ const server = http.createServer((req, res) => {
     } 
     
     else if (req.url === '/members_text') {
-        //ส่วนที่ 2 ข้อ 2 เอาโค้ดลงdocด้วย
+        const filePath = path.join(__dirname, 'members.html');
         
-    } 
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+            res.end(data);
+        });
+    }  
 
     else if (req.url === '/members_html') {
         //ส่วนที่ 2 ข้อ 3 เอาโค้ดลงdocด้วย
