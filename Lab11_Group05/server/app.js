@@ -1,6 +1,8 @@
-// ส่วนที่ 1 ข้อ 5 ทดสอบ modules ที่สร้างในข้อ 3. และ 4. *เขียนdocด้วย
+const { printModulePath } = require('./printModulePath');
+const { readHTML } = require('./readHTMLFile');
 
 console.log("ทดสอบ ส่วนที่ 1 ข้อ 3");
-
+printModulePath();
 
 console.log("\nทดสอบ ส่วนที่ 1 ข้อ 4");
+readHTML('lec10.html');
