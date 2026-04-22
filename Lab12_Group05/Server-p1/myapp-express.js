@@ -2,20 +2,33 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('This is my home page');
+});
 
+app.get('/members_text', (req, res) => {
+    fs.readFile('members.html', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error reading file');
+            return;
+        }
+        res.setHeader('Content-Type', 'text/plain');
+        res.send(data);
+    });
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
+app.get('/members_html', (req, res) => {
+    fs.readFile('members.html', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error reading file');
+            return;
+        }
+        res.setHeader('Content-Type', 'text/html');
+        res.send(data);
+    });
+});
 
 // ส่วนที่ 1 ข้อ 4-5: จัดการ GET request /item/XXX
 app.get('/item/:id', (req, res) => {
@@ -52,10 +65,6 @@ app.get('/item/:id', (req, res) => {
         }
     });
 });
-
-
-
-
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
