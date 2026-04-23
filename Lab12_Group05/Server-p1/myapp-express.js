@@ -35,7 +35,7 @@ app.get('/item/:id', (req, res) => {
     const itemId = req.params.id; // ดึง id จาก URL
 
     // อ่านไฟล์ด้วย fs module
-    fs.readFile('./public/it-gadgets.json', 'utf8', (err, data) => {
+    fs.readFile('./it-gadgets.json', 'utf8', (err, data) => {
         if (err) {
             res.status(500).send("Error reading file.");
             return;
