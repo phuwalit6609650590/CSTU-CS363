@@ -25,7 +25,33 @@ app.get('/api/product/:id', async(req, res) => {
         }
         return res.status(200).send(foundItem);
 
-})
+});
+
+// Post
+app.post('/api/products/add', async (req, res) => {
+    try {
+        const newProduct = req.body;
+
+        if (!newProduct || Object.keys(newProduct).length === 0) {
+            return res.status(400).json({ message: "Invalid product data" });
+        }
+
+        const data = await fs.readFile('./it-gadgets.json', 'utf-8');
+        const parseData = JSON.parse(data);
+
+        parseData.items.push(newProduct);
+        parseData.totalItems = parseData.items.length;
+
+        await fs.writeFile('./it-gadgets.json', JSON.stringify(parseData, null, 2));
+
+        return res.status(201).json({
+            message: "Product added successfully",
+            product: newProduct
+        });
+    } catch (error) {
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+});
 
 app.listen(3001, ()=>{
     console.log('Server on port 3001')
