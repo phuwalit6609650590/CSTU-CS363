@@ -21,7 +21,7 @@ app.get('/api/product/:id', async(req, res) => {
 
         const foundItem = parseData.items.find(item => String(item.id) === targetId);
         if (!foundItem) {
-            return res.status(404);
+            return res.status(404).send({ message: "ไม่พบข้อมูล" });
         }
         return res.status(200).send(foundItem);
 
