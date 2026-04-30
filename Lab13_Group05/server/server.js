@@ -53,6 +53,32 @@ app.post('/api/products/add', async (req, res) => {
     }
 });
 
+// Delete
+app.delete('/api/product/:id', async (req, res) => {
+    try {
+        const targetId = req.params.id;
+        const data = await fs.readFile('./it-gadgets.json', 'utf-8');
+        const parseData = JSON.parse(data);
+
+        const index = parseData.items.findIndex(item => String(item.id) === targetId);
+        if (index === -1) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+
+        const deleted = parseData.items.splice(index, 1)[0];
+        parseData.totalItems = parseData.items.length;
+
+        await fs.writeFile('./it-gadgets.json', JSON.stringify(parseData, null, 2));
+
+        return res.status(200).json({
+            message: "Product deleted successfully",
+            deleted: deleted
+        });
+    } catch (error) {
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
 app.listen(3001, ()=>{
     console.log('Server on port 3001')
 })
